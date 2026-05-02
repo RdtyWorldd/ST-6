@@ -2,15 +2,15 @@ package com.mycompany.app;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
 
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
@@ -85,7 +85,7 @@ public class ProgramTest {
             'O', ' ', 'X'
         }, moves);
 
-        assertIterableEquals(List.of(1, 3, 5, 7), moves);
+        assertIterableEquals(Arrays.asList(1, 3, 5, 7), moves);
     }
 
     @Test
@@ -149,7 +149,7 @@ public class ProgramTest {
 
         assertEquals('X', cell.getMarker());
         assertEquals("X", cell.getText());
-        assertEquals(false, cell.isEnabled());
+        assertFalse(cell.isEnabled());
     }
 
     @Test
@@ -175,7 +175,7 @@ public class ProgramTest {
         try {
             Utility.print(new char[] {'X', 'O', ' ', ' ', 'X', ' ', 'O', ' ', 'X'});
             Utility.print(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9});
-            Utility.print(new ArrayList<>(List.of(0, 4, 8)));
+            Utility.print(new ArrayList<Integer>(Arrays.asList(0, 4, 8)));
         } finally {
             System.setOut(originalOut);
         }
